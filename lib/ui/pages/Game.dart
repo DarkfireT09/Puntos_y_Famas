@@ -62,8 +62,23 @@ class _GameState extends State<Game> {
                   ),
                 ),
                 Container(
+                  margin: const EdgeInsets.all(30),
+                  child: Text(
+                    'Intentos: '+ controller.intentos.toString(),
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.all(30),
+                  child: Text(
+                      'Famas: ' + controller.famas.toString(),
+                    style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
+                  ),
+                ),
+                Container(
                   margin: const EdgeInsets.only(left: 30, right: 30),
                   child: TextField(
+                    textAlign: TextAlign.center,
                     keyboardType: controller.dificultad.value == 4 ? TextInputType.phone : TextInputType.number,
                     onSubmitted: (String value) {
                       if ((value.length != controller.getLen()) || (numerosRepetidos(value)) || !checkHexadecimal(value)){
@@ -125,7 +140,7 @@ class _GameState extends State<Game> {
                   margin: const EdgeInsets.all(30),
 
                   child: Text(
-                    'Intentos: '+ controller.intentos.toString() + ', tienes famas: ' + controller.famas.toString() + ', puntos: ' + controller.puntos.toString() + ' y has fallado en: ' + controller.fallas.toString(),
+                    'Puntos: ' + controller.puntos.toString() + ' y Fallos: ' + controller.fallas.toString(),
                     style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
                   ),
                 ),
