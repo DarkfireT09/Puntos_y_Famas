@@ -80,7 +80,7 @@ class _VersusState extends State<Versus> {
                 child: TextField(
                   textAlign: TextAlign.center,
                   controller: _controller,
-                  keyboardType: controller.dificultad.value == 4 ? TextInputType.phone : TextInputType.number,
+                  keyboardType: controller.dificultad.value == 4 ? TextInputType.text : TextInputType.number,
                   onSubmitted: (String value) {
                     if ((value.length != controller.getLen()) || (numerosRepetidos(value)) || !checkHexadecimal(value)){
                       AlertDialog alert = AlertDialog(

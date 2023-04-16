@@ -102,12 +102,14 @@ class GameController extends GetxController {
   }
 
   void comparar(){
-
     for (int i = 0; i < a.length; i++){
       if (a.contains(numero[i])){
         if (a[i] == numero[i]){
           if (!famas.contains(numero[i])){
             famas[i] = numero[i];
+            if (puntos.contains(numero[i])){
+              puntos.remove(numero[i]);
+            }
           }
         } else {
           if (!puntos.contains(numero[i])){

@@ -79,7 +79,7 @@ class _GameState extends State<Game> {
                   margin: const EdgeInsets.only(left: 30, right: 30),
                   child: TextField(
                     textAlign: TextAlign.center,
-                    keyboardType: controller.dificultad.value == 4 ? TextInputType.phone : TextInputType.number,
+                    keyboardType: controller.dificultad.value == 4 ? TextInputType.text : TextInputType.number,
                     onSubmitted: (String value) {
                       if ((value.length != controller.getLen()) || (numerosRepetidos(value)) || !checkHexadecimal(value)){
                         AlertDialog alert = AlertDialog(
