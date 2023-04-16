@@ -82,6 +82,7 @@ class _VersusState extends State<Versus> {
                   controller: _controller,
                   keyboardType: controller.dificultad.value == 4 ? TextInputType.text : TextInputType.number,
                   onSubmitted: (String value) {
+                    value = value.toUpperCase();
                     if ((value.length != controller.getLen()) || (numerosRepetidos(value)) || !checkHexadecimal(value)){
                       AlertDialog alert = AlertDialog(
                         title: Text("Error"),
