@@ -41,9 +41,12 @@ class _AppState extends State<App> {
               Container(
                 margin: const EdgeInsets.all(30),
 
-                child: Text(
-                  'Puntos y Famas',
-                  style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.lightBlue[900]),
+                child: Center(
+                  child: Text(
+                    'Puntos y Famas',
+                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.lightBlue[900]),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
               Container(

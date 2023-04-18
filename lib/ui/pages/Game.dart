@@ -170,7 +170,7 @@ class _GameState extends State<Game> {
                 ),
                 Container(
                   margin: const EdgeInsets.all(30),
-                  padding: const EdgeInsets.only(left: 170, right: 170),
+                  padding: const EdgeInsets.only(left: 10, right: 10),
 
                   child: ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(

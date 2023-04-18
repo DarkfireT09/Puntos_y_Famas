@@ -219,7 +219,7 @@ class _VersusState extends State<Versus> {
               ),
               Container(
                 margin: const EdgeInsets.all(30),
-                padding: const EdgeInsets.only(left: 170, right: 170),
+                padding: const EdgeInsets.only(left: 10, right: 10),
 
                 child: controller.setNumbers? null : ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
