@@ -170,10 +170,16 @@ class _GameState extends State<Game> {
                 ),
                 Container(
                   margin: const EdgeInsets.all(30),
+                  padding: const EdgeInsets.only(left: 170, right: 170),
 
-                  child: ElevatedButton(
+                  child: ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.lightBlue[900],
+                      // the button must be circular
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+
                     ),
                     onPressed: () {
                       controller.getHINT();
@@ -207,7 +213,8 @@ class _GameState extends State<Game> {
                         );
                       }
                     },
-                    child: const Text('HINT'),
+                    icon: const Icon(Icons.lightbulb_outline),
+                    label: const Text('HINT'),
                   ),
                 ),
 
