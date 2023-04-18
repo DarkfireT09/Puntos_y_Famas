@@ -14,13 +14,13 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
 
   GameController controller = Get.find();
-  Color color11 = Colors.blue;
-  Color color12 = Colors.blue;
-  Color color13 = Colors.blue;
-  Color color14 = Colors.blue;
+  Color? color11 = Colors.lightBlue[900];
+  Color? color12 = Colors.lightBlue[900];
+  Color? color13 = Colors.lightBlue[900];
+  Color? color14 = Colors.lightBlue[900];
 
-  Color color21 = Colors.blue;
-  Color color22 = Colors.blue;
+  Color? color21 = Colors.lightBlue[900];
+  Color? color22 = Colors.lightBlue[900];
 
 
   @override
@@ -30,12 +30,10 @@ class _AppState extends State<App> {
       debugShowCheckedModeBanner: false,
       title: 'Puntos y Famas',
       theme: ThemeData(
-        fontFamily: 'Michroma',
+        primaryColor: Colors.lightBlue[800],
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Puntos y Famas'),
-        ),
+        backgroundColor: Colors.lightGreen[200],
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -43,17 +41,17 @@ class _AppState extends State<App> {
               Container(
                 margin: const EdgeInsets.all(30),
 
-                child: const Text(
+                child: Text(
                   'Puntos y Famas',
-                  style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.blue),
+                  style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.lightBlue[900]),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.all(30),
 
-                child: const Text(
+                child: Text(
                   'Seleccione la dificultad',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.blue),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.lightBlue[900]),
                 ),
               ),
               Row(
@@ -66,10 +64,10 @@ class _AppState extends State<App> {
                         backgroundColor: color11,
                       ),
                       onPressed: () {
-                        color11 = Colors.red;
-                        color14 = Colors.blue;
-                        color12 = Colors.blue;
-                        color13 = Colors.blue;
+                        color11 = Colors.pink[800];
+                        color14 = Colors.lightBlue[900];
+                        color12 = Colors.lightBlue[900];
+                        color13 = Colors.lightBlue[900];
                         controller.changeDificultad(1);
                         setState(() {});
                       },
@@ -83,10 +81,10 @@ class _AppState extends State<App> {
                         backgroundColor: color12,
                       ),
                       onPressed: () {
-                        color12 = Colors.red;
-                        color11 = Colors.blue;
-                        color14 = Colors.blue;
-                        color13 = Colors.blue;
+                        color12 = Colors.pink[800];
+                        color11 = Colors.lightBlue[900];
+                        color14 = Colors.lightBlue[900];
+                        color13 = Colors.lightBlue[900];
                         controller.changeDificultad(2);
                         setState(() {});
                       },
@@ -100,10 +98,10 @@ class _AppState extends State<App> {
                         backgroundColor: color13,
                       ),
                       onPressed: () {
-                        color13 = Colors.red;
-                        color11 = Colors.blue;
-                        color12 = Colors.blue;
-                        color14 = Colors.blue;
+                        color13 = Colors.pink[800];
+                        color11 = Colors.lightBlue[900];
+                        color12 = Colors.lightBlue[900];
+                        color14 = Colors.lightBlue[900];
                         controller.changeDificultad(3);
                         setState(() {});
                       },
@@ -117,10 +115,10 @@ class _AppState extends State<App> {
                         backgroundColor: color14,
                       ),
                       onPressed: () {
-                        color14 = Colors.red;
-                        color11 = Colors.blue;
-                        color12 = Colors.blue;
-                        color13 = Colors.blue;
+                        color14 = Colors.pink[800];
+                        color11 = Colors.lightBlue[900];
+                        color12 = Colors.lightBlue[900];
+                        color13 = Colors.lightBlue[900];
                         controller.changeDificultad(4);
                         setState(() {});
                       },
@@ -140,8 +138,8 @@ class _AppState extends State<App> {
                         backgroundColor: color21,
                       ),
                       onPressed: () {
-                        color21 = Colors.red;
-                        color22 = Colors.blue;
+                        color21 = Colors.pink[800];
+                        color22 = Colors.lightBlue[900];
                         controller.changeTipo(1);
                         setState(() {});
                       },
@@ -155,8 +153,8 @@ class _AppState extends State<App> {
                         backgroundColor: color22,
                       ),
                       onPressed: () {
-                        color22 = Colors.red;
-                        color21 = Colors.blue;
+                        color22 = Colors.pink[800];
+                        color21 = Colors.lightBlue[900];
                         controller.changeTipo(2);
                         setState(() {});
                       },
@@ -169,6 +167,9 @@ class _AppState extends State<App> {
               Container(
                 margin: const EdgeInsets.all(30),
                 child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.lightBlue[900],
+                    ),
                     onPressed: () {
                       if (controller.tipo != 0 && controller.dificultad != 0)  {
                         if (controller.tipo == 1) {
@@ -182,21 +183,21 @@ class _AppState extends State<App> {
                             controller.randomHexa();
                           }
                           controller.initFamas();
-                          color11 = Colors.blue;
-                          color12 = Colors.blue;
-                          color13 = Colors.blue;
-                          color14 = Colors.blue;
-                          color21 = Colors.blue;
-                          color22 = Colors.blue;
+                          color11 = Colors.lightBlue[900];
+                          color12 = Colors.lightBlue[900];
+                          color13 = Colors.lightBlue[900];
+                          color14 = Colors.lightBlue[900];
+                          color21 = Colors.lightBlue[900];
+                          color22 = Colors.lightBlue[900];
                           setState(() {});
                           Get.to(() => Game());
                         } else {
-                          color11 = Colors.blue;
-                          color12 = Colors.blue;
-                          color13 = Colors.blue;
-                          color14 = Colors.blue;
-                          color21 = Colors.blue;
-                          color22 = Colors.blue;
+                          color11 = Colors.lightBlue[900];
+                          color12 = Colors.lightBlue[900];
+                          color13 = Colors.lightBlue[900];
+                          color14 = Colors.lightBlue[900];
+                          color21 = Colors.lightBlue[900];
+                          color22 = Colors.lightBlue[900];
                           setState(() {});
                           Get.to(() => Versus());
                         }

@@ -20,9 +20,9 @@ class GameController extends GetxController {
 
   String getTurn(){
     if (setNumbers){
-      return "Colocar";
+      return "Elegir el numero";
     } else {
-      return "Adivinar";
+      return "Adivinar el numero";
     }
   }
 

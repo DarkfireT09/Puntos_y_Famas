@@ -36,6 +36,7 @@ class Game extends StatefulWidget {
 class _GameState extends State<Game> {
 
   GameController controller = Get.find();
+  TextEditingController _controller = TextEditingController();
 
 
   @override
@@ -43,11 +44,12 @@ class _GameState extends State<Game> {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Solitario'),
-          ),
+      theme: ThemeData(
+        primaryColor: Colors.lightBlue[800],
 
+      ),
+      home: Scaffold(
+          backgroundColor: Colors.lightGreen[200],
           body: Center(
             child: ListView(
               //mainAxisAlignment: MainAxisAlignment.center,
@@ -56,41 +58,48 @@ class _GameState extends State<Game> {
                 Container(
                   margin: const EdgeInsets.all(30),
 
-                  child: Text(
-                    'Vamos a jugar',
-                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.blue),
+                  child: Center(
+                    child: Text(
+                      'Vamos a jugar',
+                      style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.lightBlue[900]),
+                    ),
                   ),
                 ),
+
                 Container(
                   margin: const EdgeInsets.all(30),
-                  child: Text(
-                    'Intentos: '+ controller.intentos.toString(),
-                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.all(30),
-                  child: Text(
-                      'Famas: ' + controller.famas.toString(),
-                    style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
+                  child: Center(
+                    child: Text(
+                        'Famas: ' + controller.famas.toString(),
+                      style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.teal),
+                    ),
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 30, right: 30),
                   child: TextField(
+                    controller: _controller,
                     textAlign: TextAlign.center,
                     keyboardType: controller.dificultad.value == 4 ? TextInputType.text : TextInputType.number,
                     onSubmitted: (String value) {
                       value = value.toUpperCase();
                       if ((value.length != controller.getLen()) || (numerosRepetidos(value)) || !checkHexadecimal(value)){
                         AlertDialog alert = AlertDialog(
-                          title: Text("Error"),
+                          backgroundColor: Colors.deepOrange[300],
+                          title: const Text("Error", style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                          ),),
                           content: Text("El numero debe tener " + controller.getLen().toString() + " digitos y sus entradas deben ser validas"),
                           actions: [
                             TextButton(
-                              child: Text("Ok"),
+                              child: const Text("Ok", style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                              ),),
                               onPressed: () {
                                 Get.back();
+                                _controller.clear();
                               },
                             ),
                           ],
@@ -109,11 +118,18 @@ class _GameState extends State<Game> {
                       setState(() {});
                       if (controller.checkWin()){
                         AlertDialog alert = AlertDialog(
-                          title: Text("Ganaste"),
+                          backgroundColor: Colors.yellow,
+                          title: Text("Ganaste", style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),),
                           content: Text("En " + controller.intentos.toString() + " intento/s"),
                           actions: [
                             TextButton(
-                              child: Text("Ok"),
+                              child: Text("Ok", style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),),
                               onPressed: () {
                                 controller.reset();
                                 Get.offAllNamed('/');
@@ -142,23 +158,40 @@ class _GameState extends State<Game> {
 
                   child: Text(
                     'Puntos: ' + controller.puntos.toString() + ' y Fallos: ' + controller.fallas.toString(),
-                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 30, right: 30, bottom: 10, top: 10),
+                  child: Text(
+                    'Intentos: '+ controller.intentos.toString(),
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal),
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.all(30),
 
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.lightBlue[900],
+                    ),
                     onPressed: () {
                       controller.getHINT();
                       setState(() {});
                       if (controller.checkWin()){
                         AlertDialog alert = AlertDialog(
-                          title: Text("Ganaste"),
+                          backgroundColor: Colors.yellow,
+                          title: Text("Ganaste", style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),),
                           content: Text("En " + controller.intentos.toString() + " intento/s"),
                           actions: [
                             TextButton(
-                              child: Text("Ok"),
+                              child: Text("Ok", style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),),
                               onPressed: () {
                                 controller.reset();
                                 Get.offAllNamed('/');
