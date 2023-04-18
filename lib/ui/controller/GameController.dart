@@ -146,6 +146,9 @@ class GameController extends GetxController {
     for (int i = 0; i < a.length; i++){
       if (famas[i] == "*"){
         famas[i] = a[i];
+        if (puntos.contains(a[i])){
+          puntos.remove(a[i]);
+        }
         intentos += 5;
         break;
       }
